@@ -1,0 +1,416 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Yoga Classes</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial, sans-serif';
+            background-color: #FFF5F7; /* Light pink background */
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2, h3 {
+            color: #D94D77; /* Soft, warm pink for headings */
+        }
+
+        /* Blog Section */
+        .blog-section {
+            padding: 20px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .blog-section h2 {
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            color: #333;
+        }
+
+        .blog-post {
+            display: flex;
+            flex-direction: column; /* Default to column on mobile */
+            align-items: center;
+            margin: 10px auto;
+            width: 100%;
+            max-width: 900px; /* Updated max-width for better fit */
+            padding: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            background-color: #fff;
+        }
+
+        .blog-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+
+        
+            /* Footer Styles */
+.footer-section {
+  background-color: #D94D77;
+  padding: 20px 0;
+  text-align: center;
+  color: #fff;
+}
+
+.footer-section .social-icons i {
+    color: white;  /* Changes the icon color to white */
+    font-size: 1.5rem;  /* Increases the icon size */
+    margin: 0 10px; /* Adds spacing between icons */
+}
+
+.footer-section .social-icons i:hover {
+    color: #FFD1DC;  /* Optional: Change color on hover */
+}
+
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  /* Padding for mobile */
+}
+
+.footer-links a {
+  color: #FFD1DC;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+.footer-links a:hover {
+  color: #FFC1CC;
+}
+
+.footer-content p {
+  font-size: 0.9em;
+}
+            
+            
+        }
+    </style>
+</head>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="navbar-logo">Your Yoga Studio</div>
+    <button class="navbar-toggle" aria-label="Open Menu">☰</button>
+
+    <ul class="navbar-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="about.html">Book a Class</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        
+            </ul>
+        </li>
+    </ul>
+</nav>
+<style>
+    /* Navbar styles */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #FF69B4; /* Pink color */
+        padding: 1rem;
+    }
+
+    .navbar-logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: white;
+    }
+
+    .navbar-toggle {
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        display: none; /* Hidden for now; used in mobile */
+    }
+
+    .navbar-links {
+        list-style-type: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+    }
+
+    .navbar-links li {
+        position: relative; /* Required for dropdown positioning */
+    }
+
+    .navbar-links li a {
+        text-decoration: none;
+        color: white;
+        padding: 0.75rem 1.25rem;
+        display: block;
+        transition: background-color 0.3s;
+    }
+
+    .navbar-links li a:hover {
+        background-color: #FF1493; /* Darker pink for hover */
+    }
+
+    /* Dropdown Menu Styles */
+    .dropdown-menu {
+        display: none; /* Hidden by default */
+        position: absolute;
+        background-color: #FFD1DC; /* Light pink for dropdown */
+        top: 100%; /* Below the parent menu item */
+        left: 0;
+        min-width: 180px;
+        z-index: 1000;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .dropdown-menu li a {
+        padding: 0.75rem 1rem;
+        color: #333;
+    }
+
+    .dropdown-menu li a:hover {
+        background-color: #FF69B4;
+        color: white;
+    }
+
+    /* Show dropdown when hovering */
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+    /* Mobile menu (for screens smaller than 768px) */
+    @media screen and (max-width: 768px) {
+        .navbar-links {
+            flex-direction: column;
+            width: 100%;
+            display: none; /* Hidden by default */
+        }
+
+        .navbar-links.active {
+            display: flex; /* Show when active */
+        }
+
+        .navbar-toggle {
+            display: block;
+        }
+
+        .navbar-links li a {
+            padding: 1rem;
+            text-align: center;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const toggleButton = document.querySelector('.navbar-toggle');
+        const navbarLinks = document.querySelector('.navbar-links');
+
+        // Open/close menu when the toggle button is clicked (for mobile view)
+        toggleButton.addEventListener('click', () => {
+            navbarLinks.classList.toggle('active');
+        });
+    });
+</script>
+
+
+    <!-- Blog Section -->
+   <section id="blog" class="blog-section">
+    <div class="container">
+        <h2 style="color: #d9534f;">Benefits of Yoga and Well-being</h2>
+        <div class="blog-post">
+            <img src="/pexels-alexy-almond-3758018.jpg" alt="Yoga benefits" class="blog-image" />
+            <div class="blog-content">
+                <h3>The Transformative Power of Yoga</h3>
+                <p>Yoga is more than just a physical practice; it is a holistic approach to health and well-being. Regular practice can enhance flexibility, improve mental clarity, and reduce stress levels.</p>
+                <button class="cta-button" onclick="toggleReadMore()">Read More</button>
+                <div id="read-more-content" style="display: none;">
+                    <p><br><br>In today’s fast-paced world, people are increasingly seeking ways to reduce stress, enhance their health, and find inner peace. Yoga, an ancient practice that originated in India over 5,000 years ago, offers a holistic approach to achieving these goals. Through a combination of physical postures (asanas), breath control (pranayama), and meditation, yoga has the power to transform both body and mind.
+<br><br>
+One of the most well-known aspects of yoga is its ability to improve physical health. Whether you're a beginner or an experienced practitioner, yoga can be tailored to suit your fitness level. Regular practice stretches the muscles and improves joint mobility, reducing stiffness and the risk of injury. Many yoga poses, such as Plank or Warrior poses, engage multiple muscle groups, building strength throughout the body without the need for heavy weights. As yoga strengthens core muscles and enhances awareness of body alignment, it naturally improves posture. This is especially important in our modern sedentary lifestyles, where poor posture can lead to back and neck pain.
+<br><br>
+Yoga has also been shown to alleviate chronic pain conditions, such as lower back pain, arthritis, and migraines, by improving flexibility, increasing blood circulation, and reducing muscle tension. Moreover, through breath-focused practices, yoga enhances lung capacity and efficiency. This can be particularly beneficial for people with respiratory issues, such as asthma, helping them breathe more deeply and easily.
+<br><br>
+Beyond its physical benefits, yoga is a powerful tool for mental clarity and emotional well-being. Practicing yoga helps to calm the mind, center thoughts, and improve mood. It promotes relaxation by lowering cortisol levels, the hormone associated with stress. Techniques like deep breathing and meditation help to quiet the mind, reduce anxiety, and create a sense of inner peace. Yoga encourages mindfulness, the practice of being fully present in the moment, leading to improved concentration and mental clarity, both on and off the mat. It also has a positive impact on sleep. Yoga helps to relax the nervous system and reduce stress, which are key factors in improving sleep quality, especially for those struggling with insomnia.
+<br><br>
+Additionally, yoga fosters emotional balance. The combination of physical movement and breath work helps to regulate emotions, making it easier to cope with challenges and setbacks. It promotes emotional resilience and cultivates a more positive outlook on life. For many practitioners, yoga is more than just a workout—it’s a spiritual practice that fosters a deeper connection with oneself and the world. The meditative aspects of yoga encourage self-reflection, personal growth, and mindfulness, helping individuals cultivate a sense of gratitude and compassion. It teaches us to be more aware of our thoughts and actions, promoting a lifestyle of kindness, patience, and non-judgment. By cultivating inner peace, yoga fosters a greater sense of connection to others and the universe.
+<br><br>
+Yoga also has the potential to contribute to a longer, healthier life. The combination of stress reduction, improved physical fitness, and emotional balance can have lasting effects on overall well-being. Many practitioners report feeling younger and more energized, even as they age, due to the ongoing benefits of this comprehensive practice.
+<br><br>
+Yoga offers a multitude of benefits for people of all ages and abilities. Whether you are looking to improve your physical health, find mental clarity, or embark on a journey of self-discovery, yoga provides the tools to transform both body and mind. By incorporating yoga into your daily routine, you can unlock a new level of well-being and lead a more balanced, fulfilling life. So, roll out your mat, take a deep breath, and begin your journey toward better health and inner peace.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function toggleReadMore() {
+        var content = document.getElementById("read-more-content");
+        var button = document.querySelector(".cta-button");
+        if (content.style.display === "none") {
+            content.style.display = "block";
+            button.textContent = "Read Less";
+        } else {
+            content.style.display = "none";
+            button.textContent = "Read More";
+        }
+    }
+</script>
+
+  <!-- Packages Section -->
+<section id="packages" class="packages-section">
+    <h2>Our Packages</h2>
+    
+    <!-- Divider -->
+    <div class="divider"></div>
+    
+   
+        <div class="packages-grid">
+    <div class="package-box">
+        <h3>
+            <i class="fas fa-spa yoga-icon"></i> <!-- Mandala or spa icon added here -->
+            Single Session
+        </h3>
+        <p>Join us for a single yoga class and experience the benefits of yoga. This is perfect for those who want to try before committing to a longer-term package.</p>
+        <p><strong>Price:</strong> £15 per class</p>
+        
+        <!-- PayPal Button for Single Session -->
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+            <input type="hidden" name="cmd" value="_xclick">
+            <input type="hidden" name="business" value="YOUR_PAYPAL_EMAIL@example.com">
+            <input type="hidden" name="item_name" value="Single Yoga Session">
+            <input type="hidden" name="amount" value="15.00">
+            <input type="hidden" name="currency_code" value="GBP">
+            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+    </div>
+
+    <div class="package-box">
+        <h3>
+            <i class="fas fa-spa yoga-icon"></i> <!-- Mandala or spa icon added here -->
+            Monthly
+        </h3>
+        <p>Enjoy unlimited yoga classes for a month. This package is great for those who want to deepen their practice and attend regularly. It's a great fitness option</p>
+        <p><strong>Price:</strong> £50 per month</p>
+
+        <!-- PayPal Button for Monthly Package -->
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+            <input type="hidden" name="cmd" value="_xclick">
+            <input type="hidden" name="business" value="YOUR_PAYPAL_EMAIL@example.com">
+            <input type="hidden" name="item_name" value="Monthly Yoga Package">
+            <input type="hidden" name="amount" value="50.00">
+            <input type="hidden" name="currency_code" value="GBP">
+            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+    </div>
+
+    <div class="package-box">
+        <h3>
+            <i class="fas fa-spa yoga-icon"></i> <!-- Mandala or spa icon added here -->
+            Yoga Course
+        </h3>
+        <p>Commit to your yoga journey with our three-month course. This package includes access to all classes and personalized guidance. Excellent value.</p>
+        <p><strong>Price:</strong> £135 (save £15)</p>
+
+        <!-- PayPal Button for Three-Month Course -->
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+            <input type="hidden" name="cmd" value="_xclick">
+            <input type="hidden" name="business" value="YOUR_PAYPAL_EMAIL@example.com">
+            <input type="hidden" name="item_name" value="Three-Month Yoga Course">
+            <input type="hidden" name="amount" value="135.00">
+            <input type="hidden" name="currency_code" value="GBP">
+            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+    </div>
+</div>
+
+</section>
+
+
+<!-- CSS for Packages Section -->
+<style>
+/* Packages Section */
+.packages-section {
+    text-align: center; /* Center the section heading */
+    padding: 50px 20px;
+}
+
+.packages-title {
+    margin-bottom: 30px; /* Space below the title */
+}
+
+.packages-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 20px;
+}
+
+.package-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.yoga-icon {
+    margin-right: 8px; /* Adds space between the icon and the text */
+    color: #88A4E3; /* Icon color */
+    font-size: 1.5em; /* Adjust the icon size */
+}
+
+/* Media Queries for Larger Screens */
+@media (min-width: 768px) {
+    .packages-grid {
+        grid-template-columns: repeat(3, 1fr); /* Three columns for larger screens */
+    }
+}
+</style>
+
+  
+  
+            </div>
+        </div>
+    </section>
+    <footer class="footer-section">
+    <div class="footer-content">
+        <div class="social-icons">
+            <a href="https://www.facebook.com/ns.mrchconsult.uk" target="_blank" class="social-link">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com/ns.mrchconsult.uk" target="_blank" class="social-link">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.x.com/MerchServ555" target="_blank" class="social-link">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </div>
+        <p>&copy; 2024 Yoga Studio. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="privacy.html">Terms & Conditions</a>
+        </div>
+    </div>
+</footer>
+
+</body>
