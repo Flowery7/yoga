@@ -1,0 +1,785 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Yoga Classes</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<style>
+/* Global Styles */
+body {
+    font-family: 'Arial, sans-serif';
+    background-color: #FFF5F7; /* Light pink background */
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+
+.divider {
+    height: 2px; /* Thickness of the divider */
+    background-color: #D94D77; /* Color of the divider */
+    margin: 40px 0; /* Space above and below the divider */
+    border: none; /* No border */
+}
+
+
+
+h1, h2, h3 {
+    color: #D94D77; /* Soft, warm pink for headings */
+}
+
+p {
+    line-height: 1.6;
+}
+
+/* Responsive Hero Section */
+.hero-section {
+    background-image: url('/pexels-alexy-almond-3758018.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    height: 60vh; /* Reduced height for mobile */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.hero-section .hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* CTA Button Styles */
+.cta-button {
+  background-color: #D94D77;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  text-shadow: none;
+  /* Remove text-shadow effect */
+}
+
+.cta-button {
+    text-shadow: none !important;
+}
+
+
+.cta-button:hover {
+  background-color: #C73A65;
+}
+
+/* About Section */
+.about-section {
+    display: flex;
+    flex-direction: column; /* Stack content on mobile */
+    align-items: center;
+    padding: 50px 20px;
+    gap: 30px;
+}
+
+.about-image {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+/* Grid Adjustments for Mobile */
+.classes-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 20px;
+}
+
+.class-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.class-image {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Responsive Find Us Section */
+.find-us-section {
+    background-color: #FFF5F7;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.find-us-content {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column for mobile */
+    gap: 30px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.map {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.map iframe {
+    width: 100%;
+    height: 300px;
+    border: none;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    background-color: #FFD1DC;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.testimonial {
+    background-color: white;
+    padding: 20px;
+    margin: 20px auto;
+    width: 100%; /* Full width for mobile */
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer Styles */
+.footer-section {
+    background-color: #D94D77;
+    padding: 20px 0;
+    text-align: center;
+    color: #fff;
+}
+
+.footer-section .social-icons i {
+    color: white;  /* Changes the icon color to white */
+    font-size: 1.5rem;  /* Increases the icon size */
+    margin: 0 10px; /* Adds spacing between icons */
+}
+
+.footer-section .social-icons i:hover {
+    color: #FFD1DC;  /* Optional: Change color on hover */
+}
+
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; /* Padding for mobile */
+}
+
+.footer-links a {
+    color: #FFD1DC;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+.footer-links a:hover {
+    color: #FFC1CC;
+}
+
+.footer-content p {
+    font-size: 0.9em;
+}
+
+/* Media Queries for Larger Screens */
+@media (min-width: 768px) {
+    /* About Section */
+    .about-section {
+        flex-direction: row; /* Row layout on larger screens */
+        padding: 50px;
+    }
+    
+    .about-image {
+        width: 40%;
+    }
+    
+    /* Classes Section */
+    .classes-grid {
+        grid-template-columns: repeat(3, 1fr); /* Three columns for larger screens */
+    }
+    
+    /* Find Us Section */
+    .find-us-content {
+        grid-template-columns: repeat(2, 1fr); /* Two columns on larger screens */
+    }
+    
+    .map iframe {
+        height: 400px;
+    }
+
+    /* Testimonials Section */
+    .testimonial {
+        width: 60%;
+    }
+}
+</style>
+<body>
+  
+  
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="navbar-logo">Your Yoga Studio</div>
+    <button class="navbar-toggle" aria-label="Open Menu">☰</button>
+    <ul class="navbar-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="about">Book a Class</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li class="dropdown">
+           
+            </ul>
+        </li>
+    </ul>
+</nav>
+
+
+<style>
+    /* Navbar styles */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #FF69B4; /* Pink color */
+        padding: 1rem;
+    }
+
+    .navbar-logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: white;
+    }
+
+    .navbar-toggle {
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        display: none;
+        font-weight: normal;
+        text-decoration: none;/* Hidden for now; used in mobile */
+    }
+
+    .navbar-links {
+        list-style-type: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+    }
+
+    .navbar-links li {
+        position: relative; /* Required for dropdown positioning */
+    }
+
+    .navbar-links li a {
+        text-decoration: none;
+        color: white;
+        padding: 0.75rem 1.25rem;
+        display: block;
+        transition: background-color 0.3s;
+    }
+
+    .navbar-links li a:hover {
+        background-color: #FF1493; /* Darker pink for hover */
+    }
+
+    /* Dropdown Menu Styles */
+    .dropdown-menu {
+        display: none; /* Hidden by default */
+        position: absolute;
+        background-color: #FFD1DC; /* Light pink for dropdown */
+        top: 100%; /* Below the parent menu item */
+        left: 0;
+        min-width: 180px;
+        z-index: 1000;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .dropdown-menu li a {
+        padding: 0.75rem 1rem;
+        color: #333;
+    }
+
+    .dropdown-menu li a:hover {
+        background-color: #FF69B4;
+        color: white;
+    }
+
+    /* Show dropdown when hovering */
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+    /* Mobile menu (for screens smaller than 768px) */
+    @media screen and (max-width: 768px) {
+        .navbar-links {
+            flex-direction: column;
+            width: 100%;
+            display: none; /* Hidden by default */
+        }
+
+        .navbar-links.active {
+            display: flex; /* Show when active */
+        }
+
+       .navbar-toggle {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: none; /* Hidden for now; used in mobile */
+    font-weight: normal; /* Make text normal */
+    text-decoration: none; /* Remove text underline */
+}
+
+        .navbar-links li a {
+            padding: 1rem;
+            text-align: center;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const toggleButton = document.querySelector('.navbar-toggle');
+        const navbarLinks = document.querySelector('.navbar-links');
+
+        // Open/close menu when the toggle button is clicked (for mobile view)
+        toggleButton.addEventListener('click', () => {
+            navbarLinks.classList.toggle('active');
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+<!-- Header / Hero Section -->
+<header class="hero-section">
+    <div class="overlay"></div>
+    <div class="hero-content">
+        <h1 class="outlined-title" style="color: #D94D77;">Online Yoga Classes</h1>
+        <p class="outlined-text" style="color: #FFFFFF;">Find peace, balance, and wellness from the comfort of your home.</p>
+        <a href="#classes" class="cta-button outlined-text">Join a Class</a>
+    </div>
+</header>
+
+<!-- Add CSS styles -->
+<style>
+/* Outlined title with softer shadow */
+.outlined-title {
+    color: white;
+    /* Softer, lighter gray shadow with slight blur */
+    text-shadow: -1px -1px 2px #a0a0a0, 1px -1px 2px #a0a0a0, -1px 1px 2px #a0a0a0, 1px 1px 2px #a0a0a0;
+}
+
+/* Bold and outlined text with softer shadow */
+.outlined-text {
+    font-weight: bold;
+    color: white;
+    /* Softer, lighter gray shadow with slight blur */
+    text-shadow: -1px -1px 2px #a0a0a0, 1px -1px 2px #a0a0a0, -1px 1px 2px #a0a0a0, 1px 1px 2px #a0a0a0;
+}
+</style>
+
+<!-- Divider -->
+<div class="divider"></div>
+
+<!-- About Section -->
+
+<!-- About Section with Dropdown -->
+<section id="about" class="about-section">
+    <div class="content">
+        <h2>About the Instructor Joanne</h2>
+        
+
+    <!-- Instructor Image -->
+    <img src="/pexels-alexy-almond-3756499.jpg" alt="Yoga Instructor" class="about-image">
+    
+      <!-- Toggleable About Content -->
+  <button class="toggle-button" onclick="toggleAbout()">Read More</button>
+  
+   <div id="about-content" class="about-text hidden">
+   <p>Hello and welcome! I’m [Instructor's Name], a certified yoga instructor with over a decade of experience in guiding individuals toward a more balanced and tranquil life through yoga. My journey in yoga began as a personal pursuit for peace and self-discovery, and I quickly realized the transformative power this practice holds. Since then, I have dedicated my life to sharing the profound benefits of yoga with others, creating a warm and inclusive environment where everyone can thrive.<br><br>
+
+     In my classes, I strive to meet each student exactly where they are, whether you’re stepping onto the mat for the first time or looking to deepen your existing practice. I believe that yoga is for everyone, regardless of age, fitness level, or experience. My teaching style emphasizes the importance of listening to your body, allowing you to explore your limits safely while encouraging personal growth and self-acceptance. My goal is to create a space where you can feel comfortable and empowered to discover your unique path.
+     <br><br>
+     Throughout my career, I have trained in various styles of yoga, including Hatha, Vinyasa, and Yin, allowing me to offer a diverse range of classes that cater to the needs and preferences of my students. Whether you are seeking a gentle introduction to yoga, a more vigorous flow, or a restorative practice, I aim to provide sessions that are not only effective but also enjoyable. My classes often incorporate breathwork and mindfulness techniques to help you cultivate a deeper connection with yourself, promoting overall well-being both on and off the mat.
+     <br><br>
+     Throughout my career, I have trained in various styles of yoga, including Hatha, Vinyasa, and Yin, allowing me to offer a diverse range of classes that cater to the needs and preferences of my students. Whether you are seeking a gentle introduction to yoga, a more vigorous flow, or a restorative practice, I aim to provide sessions that are not only effective but also enjoyable. My classes often incorporate breathwork and mindfulness techniques to help you cultivate a deeper connection with yourself, promoting overall well-being both on and off the mat.
+     <br><br>
+     I am truly passionate about fostering a sense of community among my students. I believe that yoga is not just a physical practice but a holistic approach to wellness that encompasses the mind, body, and spirit. Through my classes.
+
+   </p>
+ </div>
+    
+</section>
+
+<!-- JavaScript for Dropdown Effect -->
+<script>
+function toggleAbout() {
+    const content = document.getElementById('about-content');
+    const button = document.querySelector('.toggle-button');
+    
+    if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        button.textContent = 'Read Less';
+    } else {
+        content.classList.add('hidden');
+        button.textContent = 'Read More';
+    }
+}
+</script>
+
+<!-- CSS for Centralized Text and Mobile Optimization -->
+<style>
+/* Global Styles */
+body {
+    font-family: 'Arial, sans-serif';
+    background-color: #FFF5F7;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* About Section Styles */
+.about-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; /* Centralizing text */
+    padding: 50px 20px;
+    gap: 20px;
+}
+
+/* Button Styles */
+.toggle-button, .book-now-link {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    margin-top: 15px;
+    font-size: 16px;
+    color: white;
+    background-color: #D94D77;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+/* Hover Effects for Buttons */
+.toggle-button:hover, .book-now-link:hover {
+    background-color: #C73A65;
+}
+
+/* Hidden About Text */
+.hidden {
+    display: none;
+}
+
+/* Image Styling */
+.about-image {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .about-section {
+        padding: 40px 15px;
+    }
+    
+    .about-image {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+</style>
+
+
+
+
+<div class="divider"></div>
+
+<!-- Classes Section -->
+<!-- Classes Section -->
+<section id="classes" class="classes-section">
+    <h2>Yoga Classes</h2>
+    <div class="classes-grid">
+        <div class="class-box">
+            <img src="/pexels-alexy-almond-3758145.jpg" alt="Beginner Yoga" class="class-image">
+            <h3>Beginner Yoga</h3>
+            <p>A gentle introduction to yoga, focusing on basic postures and breathing techniques.</p>
+        </div>
+        <div class="class-box">
+            <img src="/pexels-alexy-almond-3758158.jpg" alt="Intermediate Yoga" class="class-image">
+            <h3>Intermediate Yoga</h3>
+            <p>Build on your foundations with more challenging poses and deeper practice.</p>
+        </div>
+        <div class="class-box">
+            <img src="/pexels-alexy-almond-3758057.jpg" alt="Advanced Yoga" class="class-image">
+            <h3>Advanced Yoga</h3>
+            <p>A dynamic and powerful class, perfect for experienced yogis looking for a challenge.</p>
+        </div>
+    </div>
+
+    <!-- Class Schedule (Timetable) -->
+    <div class="class-schedule">
+        <h3>Class Schedule</h3>
+        <table class="schedule-table">
+            <thead>
+                <tr>
+                    <th>Day</th>
+                    <th>Beginner Yoga</th>
+                    <th>Intermediate Yoga</th>
+                    <th>Advanced Yoga</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Mon</td>
+                    <td>9:00 AM - 10:00 AM</td>
+                    <td>11:00 AM - 12:00 PM</td>
+                    <td>1:00 PM - 2:00 PM</td>
+                </tr>
+                <tr>
+                    <td>Tue</td>
+                    <td>8:00 AM - 9:00 AM</td>
+                    <td>10:00 AM - 11:00 AM</td>
+                    <td>12:00 PM - 1:00 PM</td>
+                </tr>
+                <tr>
+                    <td>Wed</td>
+                    <td>9:00 AM - 10:00 AM</td>
+                    <td>11:00 AM - 12:00 PM</td>
+                    <td>1:00 PM - 2:00 PM</td>
+                </tr>
+                <tr>
+                    <td>Thur</td>
+                    <td>8:00 AM - 9:00 AM</td>
+                    <td>10:00 AM - 11:00 AM</td>
+                    <td>12:00 PM - 1:00 PM</td>
+                </tr>
+                <tr>
+                    <td>Fri</td>
+                    <td>9:00 AM - 10:00 AM</td>
+                    <td>11:00 AM - 12:00 PM</td>
+                    <td>1:00 PM - 2:00 PM</td>
+                </tr>
+                <tr>
+                    <td>Saturday</td>
+                    <td>9:00 AM - 10:00 AM</td>
+                    <td>11:00 AM - 12:00 PM</td>
+                    <td>1:00 PM - 2:00 PM</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- CSS for Center Aligning Text, Tiles, and Timetable -->
+<style>
+/* Classes Section */
+.classes-section {
+    text-align: center; /* Centralize the section heading */
+    padding: 50px 20px;
+}
+
+.classes-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 20px;
+}
+
+.class-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center-align content inside the boxes */
+}
+
+.class-image {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+h3, p {
+    margin: 0 0 10px;
+    text-align: center; /* Centralize all text */
+}
+
+/* Schedule Table */
+.class-schedule {
+    margin-top: 40px;
+}
+
+.schedule-table {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.schedule-table th, .schedule-table td {
+    border: 1px solid #DDD;
+    padding: 8px;
+}
+
+.schedule-table th {
+    background-color: #FFD1DC; /* Light pink for headers */
+}
+
+.schedule-table td {
+    background-color: #FFF5F7; /* Soft background for cells */
+}
+
+/* Media Queries for Larger Screens */
+@media (min-width: 768px) {
+    .classes-grid {
+        grid-template-columns: repeat(3, 1fr); /* Three columns on larger screens */
+    }
+}
+</style>
+
+
+
+<!-- Divider -->
+<div class="divider"></div>
+
+<!-- Where to Find Us Section -->
+<section id="find-us" class="find-us-section">
+    <div class="find-us-content">
+        <div class="directions">
+            <h2>Where to Find Us</h2>
+            <p>We are conveniently located just a 5-minute walk from the Downtown Station. ...</p>
+        </div>
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?..." allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+</section>
+
+<!-- Divider -->
+<div class="divider"></div>
+
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="testimonials-section">
+    <h2>What Our Students Say</h2>
+    <div class="testimonial">
+        <p>"Yoga with [Instructor's Name] has transformed my life! ..."</p>
+        <span>-Jane Doe</span>
+    </div>
+    <div class="testimonial">
+        <p>"The online classes are so convenient, and the instructor is amazing!"</p>
+        <span>-Shirley Basey</span>
+    </div>
+</section>
+
+<!-- CSS for Testimonials Section -->
+<style>
+/* Testimonials Section */
+.testimonials-section {
+    background-color: #FFD1DC;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.testimonial {
+    background-color: white;
+    padding: 20px;
+    margin: 20px auto;
+    width: 100%; /* Full width for mobile */
+    max-width: 500px; /* Constrain width on larger screens */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Ensure padding is included in the width */
+}
+
+p {
+    margin: 0 0 10px;
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+span {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Ensure everything fits on mobile */
+@media (max-width: 767px) {
+    .testimonial {
+        max-width: 100%; /* Full width on smaller screens */
+        margin: 10px auto; /* Adjust margin for better fit */
+    }
+}
+</style>
+
+
+<!-- Footer -->
+<footer class="footer-section">
+    <div class="footer-content">
+        <div class="social-icons">
+            <a href="https://www.facebook.com/ns.mrchconsult.uk" target="_blank" class="social-link">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com/ns.mrchconsult.uk" target="_blank" class="social-link">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.x.com/MerchServ555" target="_blank" class="social-link">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </div>
+        <p>&copy; 2024 Yoga Studio. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="privacy.hrml">Terms & Conditions</a>
+        </div>
+    </div>
+</footer>
+
+</body>
