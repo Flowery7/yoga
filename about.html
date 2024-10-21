@@ -1,0 +1,519 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Yoga Classes</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<style>
+/* Global Styles */
+body {
+    font-family: 'Arial, sans-serif';
+    background-color: #FFF5F7; /* Light pink background */
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.divider {
+    height: 2px; /* Thickness of the divider */
+    background-color: #D94D77; /* Color of the divider */
+    margin: 40px 0; /* Space above and below the divider */
+    border: none; /* No border */
+}
+
+
+h1, h2, h3 {
+    color: #D94D77; /* Soft, warm pink for headings */
+}
+
+p {
+    line-height: 1.6;
+}
+
+/* Responsive Hero Section */
+.hero-section {
+    background-image: url('/pexels-alexy-almond-3758018.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    height: 60vh; /* Reduced height for mobile */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.hero-section .hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.cta-button {
+    background-color: #D94D77;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #C73A65;
+}
+
+/* About Section */
+.about-section {
+    display: flex;
+    flex-direction: column; /* Stack content on mobile */
+    align-items: center;
+    padding: 50px 20px;
+    gap: 30px;
+}
+
+.about-image {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+/* Grid Adjustments for Mobile */
+.classes-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 20px;
+}
+
+.class-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.class-image {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Footer Styles */
+.footer-section {
+    background-color: #D94D77;
+    padding: 20px 0;
+    text-align: center;
+    color: #fff;
+}
+
+.footer-section .social-icons i {
+    color: white;  /* Changes the icon color to white */
+    font-size: 1.5rem;  /* Increases the icon size */
+    margin: 0 10px; /* Adds spacing between icons */
+}
+
+.footer-section .social-icons i:hover {
+    color: #FFD1DC;  /* Optional: Change color on hover */
+}
+
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; /* Padding for mobile */
+}
+
+.footer-links a {
+    color: #FFD1DC;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+.footer-links a:hover {
+    color: #FFC1CC;
+}
+
+.footer-content p {
+    font-size: 0.9em;
+}
+
+/* Media Queries for Larger Screens */
+@media (min-width: 768px) {
+    /* About Section */
+    .about-section {
+        flex-direction: row; /* Row layout on larger screens */
+        padding: 50px;
+    }
+    
+    .about-image {
+        width: 40%;
+    }
+    
+    /* Classes Section */
+    .classes-grid {
+        grid-template-columns: repeat(3, 1fr); /* Three columns for larger screens */
+    }
+    
+   </style>
+
+<body>
+  
+  
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="navbar-logo">Your Yoga Studio</div>
+    <button class="navbar-toggle" aria-label="Open Menu">☰</button>
+
+    <ul class="navbar-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="about.html">Book a Class</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        
+            </ul>
+        </li>
+    </ul>
+</nav>
+<style>
+    /* Navbar styles */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #FF69B4; /* Pink color */
+        padding: 1rem;
+    }
+
+    .navbar-logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: white;
+    }
+
+    .navbar-toggle {
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        display: none; /* Hidden for now; used in mobile */
+    }
+
+    .navbar-links {
+        list-style-type: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+    }
+
+    .navbar-links li {
+        position: relative; /* Required for dropdown positioning */
+    }
+
+    .navbar-links li a {
+        text-decoration: none;
+        color: white;
+        padding: 0.75rem 1.25rem;
+        display: block;
+        transition: background-color 0.3s;
+    }
+
+    .navbar-links li a:hover {
+        background-color: #FF1493; /* Darker pink for hover */
+    }
+
+    /* Dropdown Menu Styles */
+    .dropdown-menu {
+        display: none; /* Hidden by default */
+        position: absolute;
+        background-color: #FFD1DC; /* Light pink for dropdown */
+        top: 100%; /* Below the parent menu item */
+        left: 0;
+        min-width: 180px;
+        z-index: 1000;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .dropdown-menu li a {
+        padding: 0.75rem 1rem;
+        color: #333;
+    }
+
+    .dropdown-menu li a:hover {
+        background-color: #FF69B4;
+        color: white;
+    }
+
+    /* Show dropdown when hovering */
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+    /* Mobile menu (for screens smaller than 768px) */
+    @media screen and (max-width: 768px) {
+        .navbar-links {
+            flex-direction: column;
+            width: 100%;
+            display: none; /* Hidden by default */
+        }
+
+        .navbar-links.active {
+            display: flex; /* Show when active */
+        }
+
+        .navbar-toggle {
+            display: block;
+        }
+
+        .navbar-links li a {
+            padding: 1rem;
+            text-align: center;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const toggleButton = document.querySelector('.navbar-toggle');
+        const navbarLinks = document.querySelector('.navbar-links');
+
+        // Open/close menu when the toggle button is clicked (for mobile view)
+        toggleButton.addEventListener('click', () => {
+            navbarLinks.classList.toggle('active');
+        });
+    });
+</script>
+
+
+
+
+
+
+<!-- Classes Section -->
+<section id="classes" class="classes-section">
+    <h2>About Our Classes</h2>
+    
+    
+    <!-- Divider -->
+<div class="divider"></div>
+
+    
+    <div class="classes-grid">
+        <div class="class-box">
+            <h3>Beginner Yoga</h3>
+            <img src="/pexels-alexy-almond-3758145.jpg" alt="Beginner Yoga" class="class-image">
+            <p>This class is perfect for those who are new to yoga. You will learn foundational postures, breathing techniques, and mindfulness practices to help you relax and connect with your body.</p>
+            <p><strong>Suitable for:</strong> Beginners, those looking to improve flexibility, and anyone seeking stress relief.</p>
+        </div>
+        <div class="class-box">
+            <h3>Intermediate Yoga</h3>
+            <img src="/pexels-alexy-almond-3758158.jpg" alt="Intermediate Yoga" class="class-image">
+            <p>Build on your foundational skills with this class that introduces more challenging poses and variations. You’ll deepen your practice and explore the connection between breath and movement.</p>
+            <p><strong>Suitable for:</strong> Yogis with some experience looking to enhance their skills and strengthen their practice.</p>
+        </div>
+        <div class="class-box">
+            <h3>Advanced Yoga</h3>
+            <img src="/pexels-alexy-almond-3758057.jpg" alt="Advanced Yoga" class="class-image">
+            <p>This dynamic class is designed for experienced practitioners ready to push their limits. Expect a vigorous flow, advanced poses, and a focus on alignment and strength.</p>
+            <p><strong>Suitable for:</strong> Seasoned yogis seeking a challenging practice and those wanting to deepen their understanding of advanced techniques.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CSS for Classes Section -->
+<style>
+/* Classes Section */
+.classes-section {
+    text-align: center; /* Center-align text */
+    padding: 50px 20px; /* Padding for section */
+}
+
+.classes-title {
+    margin-bottom: 30px; /* Space below the title */
+}
+
+.classes-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 20px;
+}
+
+.class-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.class-image {
+    width: 100%; /* Responsive image */
+    border-radius: 10px;
+    margin: 10px 0; /* Space above and below the image */
+}
+
+/* Media Queries for Larger Screens */
+@media (min-width: 768px) {
+    .classes-grid {
+        grid-template-columns: repeat(3, 1fr); /* Three columns for larger screens */
+    }
+}
+</style>
+
+
+
+
+
+<!-- Packages Section -->
+<section id="packages" class="packages-section">
+    <h2>Our Packages</h2>
+    
+    <!-- Divider -->
+    <div class="divider"></div>
+    
+   
+        <div class="packages-grid">
+    <div class="package-box">
+        <h3>
+            <i class="fas fa-spa yoga-icon"></i> <!-- Mandala or spa icon added here -->
+            Single Session
+        </h3>
+        <p>Join us for a single yoga class and experience the benefits of yoga. This is perfect for those who want to try before committing to a longer-term package.</p>
+        <p><strong>Price:</strong> £15 per class</p>
+        
+        <!-- PayPal Button for Single Session -->
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+            <input type="hidden" name="cmd" value="_xclick">
+            <input type="hidden" name="business" value="YOUR_PAYPAL_EMAIL@example.com">
+            <input type="hidden" name="item_name" value="Single Yoga Session">
+            <input type="hidden" name="amount" value="15.00">
+            <input type="hidden" name="currency_code" value="GBP">
+            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+    </div>
+
+    <div class="package-box">
+        <h3>
+            <i class="fas fa-spa yoga-icon"></i> <!-- Mandala or spa icon added here -->
+            Monthly
+        </h3>
+        <p>Enjoy unlimited yoga classes for a month. This package is great for those who want to deepen their practice and attend regularly. It's a great fitness option</p>
+        <p><strong>Price:</strong> £50 per month</p>
+
+        <!-- PayPal Button for Monthly Package -->
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+            <input type="hidden" name="cmd" value="_xclick">
+            <input type="hidden" name="business" value="YOUR_PAYPAL_EMAIL@example.com">
+            <input type="hidden" name="item_name" value="Monthly Yoga Package">
+            <input type="hidden" name="amount" value="50.00">
+            <input type="hidden" name="currency_code" value="GBP">
+            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+    </div>
+
+    <div class="package-box">
+        <h3>
+            <i class="fas fa-spa yoga-icon"></i> <!-- Mandala or spa icon added here -->
+            Yoga Course
+        </h3>
+        <p>Commit to your yoga journey with our three-month course. This package includes access to all classes and personalized guidance. Excellent value.</p>
+        <p><strong>Price:</strong> £135 (save £15)</p>
+
+        <!-- PayPal Button for Three-Month Course -->
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+            <input type="hidden" name="cmd" value="_xclick">
+            <input type="hidden" name="business" value="YOUR_PAYPAL_EMAIL@example.com">
+            <input type="hidden" name="item_name" value="Three-Month Yoga Course">
+            <input type="hidden" name="amount" value="135.00">
+            <input type="hidden" name="currency_code" value="GBP">
+            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+    </div>
+</div>
+
+</section>
+
+
+<!-- CSS for Packages Section -->
+<style>
+/* Packages Section */
+.packages-section {
+    text-align: center; /* Center the section heading */
+    padding: 50px 20px;
+}
+
+.packages-title {
+    margin-bottom: 30px; /* Space below the title */
+}
+
+.packages-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 20px;
+}
+
+.package-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.yoga-icon {
+    margin-right: 8px; /* Adds space between the icon and the text */
+    color: #88A4E3; /* Icon color */
+    font-size: 1.5em; /* Adjust the icon size */
+}
+
+/* Media Queries for Larger Screens */
+@media (min-width: 768px) {
+    .packages-grid {
+        grid-template-columns: repeat(3, 1fr); /* Three columns for larger screens */
+    }
+}
+</style>
+
+<!-- Divider -->
+<div class="divider"></div>
+
+<!-- Footer -->
+<footer class="footer-section">
+    <div class="footer-content">
+        <div class="social-icons">
+            <a href="https://www.facebook.com/ns.mrchconsult.uk" target="_blank" class="social-link">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com/ns.mrchconsult.uk" target="_blank" class="social-link">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.x.com/MerchServ555" target="_blank" class="social-link">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </div>
+        <p>&copy; 2024 Yoga Studio. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="privacy.html">Terms & Conditions</a>
+        </div>
+    </div>
+</footer>
+</body>
