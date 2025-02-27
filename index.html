@@ -830,7 +830,6 @@ span {
 <script>
 
 (function() {
-    // Create the pop-up container
     const popup = document.createElement('div');
     popup.id = 'custom-popup';
     Object.assign(popup.style, {
@@ -847,7 +846,6 @@ span {
         borderRadius: '8px'
     });
 
-    // Create the close button
     const closeButton = document.createElement('span');
     closeButton.textContent = '×';
     Object.assign(closeButton.style, {
@@ -861,24 +859,22 @@ span {
         popup.style.display = 'none';
     });
 
-    // Create title and message
     const title = document.createElement('h2');
     title.textContent = 'Subscribe to Our Newsletter';
     title.style.textAlign = 'center';
 
     const message = document.createElement('p');
-    message.textContent = 'Enter your email or mobile number to stay updated!';
+    message.textContent = 'Enter your email to stay updated!';
     message.style.textAlign = 'center';
 
-    // Create the form
     const form = document.createElement('form');
     form.id = 'custom-subscribe-form';
     form.style.textAlign = 'center';
 
     const inputField = document.createElement('input');
     inputField.type = 'text';
-    inputField.id = 'custom-email-or-mobile';
-    inputField.placeholder = 'Email or Mobile Number';
+    inputField.id = 'custom-email';
+    inputField.placeholder = 'Enter your email';
     inputField.required = true;
     Object.assign(inputField.style, {
         width: '100%',
@@ -900,7 +896,6 @@ span {
         cursor: 'pointer'
     });
 
-    // Success and error messages
     const successMessage = document.createElement('p');
     successMessage.id = 'custom-subscribe-message';
     successMessage.textContent = 'Thank you for subscribing!';
@@ -919,7 +914,6 @@ span {
         display: 'none'
     });
 
-    // Append elements
     form.appendChild(inputField);
     form.appendChild(submitButton);
     popup.appendChild(closeButton);
@@ -930,32 +924,26 @@ span {
     popup.appendChild(errorMessage);
     document.body.appendChild(popup);
 
-    // Show the pop-up after 15 seconds
     setTimeout(() => {
         popup.style.display = 'block';
     }, 15000);
 
-    // Validate email or phone number
     function validateInput(value) {
         const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        const mobilePattern = /^[0-9]{10,15}$/; // Allows 10-15 digit phone numbers
-
-        return emailPattern.test(value) || mobilePattern.test(value);
+        return emailPattern.test(value);
     }
 
-    // Handle form submission
     form.addEventListener('submit', async function(event) {
         event.preventDefault();
-        const emailOrMobile = inputField.value.trim();
+        const email = inputField.value.trim();
 
-        if (!validateInput(emailOrMobile)) {
-            errorMessage.textContent = 'Please enter a valid email or mobile number.';
+        if (!validateInput(email)) {
+            errorMessage.textContent = 'Please enter a valid email address.';
             errorMessage.style.display = 'block';
             successMessage.style.display = 'none';
             return;
         }
 
-        // Disable the button to prevent multiple submissions
         submitButton.disabled = true;
         submitButton.textContent = 'Submitting...';
 
@@ -965,14 +953,12 @@ span {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ emailOrMobile: emailOrMobile })
+                body: JSON.stringify({ email: email })
             });
 
             if (response.ok) {
                 successMessage.style.display = 'block';
                 errorMessage.style.display = 'none';
-
-                // Hide pop-up after success
                 setTimeout(() => {
                     popup.style.display = 'none';
                 }, 3000);
@@ -989,6 +975,8 @@ span {
         }
     });
 })();
+
+    
 </script>
 
     
