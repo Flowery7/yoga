@@ -14,7 +14,6 @@
 </head>
 
 <style>
-/* Global Styles */
 body {
     font-family: 'Arial, sans-serif';
     background-color: #FFF5F7; /* Light pink background */
@@ -23,12 +22,14 @@ body {
     padding: 0;
 }
 
+
 .divider {
     height: 2px; /* Thickness of the divider */
     background-color: #D94D77; /* Color of the divider */
     margin: 40px 0; /* Space above and below the divider */
     border: none; /* No border */
 }
+
 
 
 h1, h2, h3 {
@@ -41,7 +42,7 @@ p {
 
 /* Responsive Hero Section */
 .hero-section {
-    background-image: url('/pexels-alexy-almond-3758018.jpg');
+    background-image: url('yoga1010.jpg');
     background-size: cover;
     background-position: center;
     position: relative;
@@ -67,17 +68,26 @@ p {
     z-index: 2;
 }
 
+
+/* CTA Button Styles */
 .cta-button {
-    background-color: #D94D77;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+  background-color: #D94D77;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  text-shadow: none;
+  /* Remove text-shadow effect */
 }
 
+.cta-button {
+    text-shadow: none !important;
+}
+
+
 .cta-button:hover {
-    background-color: #C73A65;
+  background-color: #C73A65;
 }
 
 /* About Section */
@@ -112,6 +122,51 @@ p {
 .class-image {
     width: 100%;
     border-radius: 10px;
+}
+
+/* Responsive Find Us Section */
+.find-us-section {
+    background-color: #FFF5F7;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.find-us-content {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column for mobile */
+    gap: 30px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.map {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.map iframe {
+    width: 100%;
+    height: 300px;
+    border: none;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    background-color: #FFD1DC;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.testimonial {
+    background-color: white;
+    padding: 20px;
+    margin: 20px auto;
+    width: 100%; /* Full width for mobile */
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Footer Styles */
@@ -171,6 +226,20 @@ p {
         grid-template-columns: repeat(3, 1fr); /* Three columns for larger screens */
     }
     
+    /* Find Us Section */
+    .find-us-content {
+        grid-template-columns: repeat(2, 1fr); /* Two columns on larger screens */
+    }
+    
+    .map iframe {
+        height: 400px;
+    }
+
+    /* Testimonials Section */
+    .testimonial {
+        width: 60%;
+    }
+}
    </style>
 
 <body>
@@ -301,7 +370,32 @@ p {
     });
 </script>
 
+<header class="hero-section">
+    <div class="overlay"></div>
+    <div class="hero-content">
+        <h1 class="outlined-title" style="color: #D94D77;">Online Yoga Classes</h1>
+        <p class="outlined-text" style="color: #FFFFFF;">Find peace, balance, and wellness from the comfort of your home.</p>
+        <a href="#classes" class="cta-button outlined-text">Join a Class</a>
+    </div>
+</header>
 
+<!-- Add CSS styles -->
+<style>
+    /* Outlined title with softer shadow */
+    .outlined-title {
+        color: white;
+        /* Softer, lighter gray shadow with slight blur */
+        text-shadow: -1px -1px 2px #a0a0a0, 1px -1px 2px #a0a0a0, -1px 1px 2px #a0a0a0, 1px 1px 2px #a0a0a0;
+    }
+    
+    /* Bold and outlined text with softer shadow */
+    .outlined-text {
+        font-weight: bold;
+        color: white;
+        /* Softer, lighter gray shadow with slight blur */
+        text-shadow: -1px -1px 2px #a0a0a0, 1px -1px 2px #a0a0a0, -1px 1px 2px #a0a0a0, 1px 1px 2px #a0a0a0;
+    }
+</style>
 
 
 
@@ -517,4 +611,5 @@ p {
     </div>
 </footer>
 </body>
+
 
