@@ -12,6 +12,102 @@
 
     <style>
         /* Global Styles */
+         .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #FF69B4; /* Pink color */
+        padding: 1rem;
+    }
+
+    .navbar-logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: white;
+    }
+
+    .navbar-toggle {
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        display: none; /* Hidden for now; used in mobile */
+    }
+
+    .navbar-links {
+        list-style-type: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+    }
+
+    .navbar-links li {
+        position: relative; /* Required for dropdown positioning */
+    }
+
+    .navbar-links li a {
+        text-decoration: none;
+        color: white;
+        padding: 0.75rem 1.25rem;
+        display: block;
+        transition: background-color 0.3s;
+    }
+
+    .navbar-links li a:hover {
+        background-color: #FF1493; /* Darker pink for hover */
+    }
+
+    /* Dropdown Menu Styles */
+    .dropdown-menu {
+        display: none; /* Hidden by default */
+        position: absolute;
+        background-color: #FFD1DC; /* Light pink for dropdown */
+        top: 100%; /* Below the parent menu item */
+        left: 0;
+        min-width: 180px;
+        z-index: 1000;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .dropdown-menu li a {
+        padding: 0.75rem 1rem;
+        color: #333;
+    }
+
+    .dropdown-menu li a:hover {
+        background-color: #FF69B4;
+        color: white;
+    }
+
+    /* Show dropdown when hovering */
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+    /* Mobile menu (for screens smaller than 768px) */
+    @media screen and (max-width: 768px) {
+        .navbar-links {
+            flex-direction: column;
+            width: 100%;
+            display: none; /* Hidden by default */
+        }
+
+        .navbar-links.active {
+            display: flex; /* Show when active */
+        }
+
+        .navbar-toggle {
+            display: block;
+        }
+
+        .navbar-links li a {
+            padding: 1rem;
+            text-align: center;
+        }
+    }
+        
+        
         body {
             font-family: 'Arial, sans-serif';
             background-color: #FFF5F7; /* Light pink background */
@@ -107,11 +203,7 @@
 
 <!-- Navbar -->
 <nav class="navbar">
-  <nav class="navbar">
-    <div class="navbar-logo">
-    <img src="1739876909998.png" alt="Yoga Studio Logo" width="60">
-    Your Yoga Studio
-</div>
+    <div class="navbar-logo">Your Yoga Studio</div>
     <button class="navbar-toggle" aria-label="Open Menu">☰</button>
 
     <ul class="navbar-links">
@@ -124,103 +216,7 @@
         </li>
     </ul>
 </nav>
-<style>
-    /* Navbar styles */
-    .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #FF69B4; /* Pink color */
-        padding: 1rem;
-    }
 
-    .navbar-logo {
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: white;
-    }
-
-    .navbar-toggle {
-        font-size: 1.5rem;
-        background: none;
-        border: none;
-        color: white;
-        cursor: pointer;
-        display: none; /* Hidden for now; used in mobile */
-    }
-
-    .navbar-links {
-        list-style-type: none;
-        display: flex;
-        margin: 0;
-        padding: 0;
-    }
-
-    .navbar-links li {
-        position: relative; /* Required for dropdown positioning */
-    }
-
-    .navbar-links li a {
-        text-decoration: none;
-        color: white;
-        padding: 0.75rem 1.25rem;
-        display: block;
-        transition: background-color 0.3s;
-    }
-
-    .navbar-links li a:hover {
-        background-color: #FF1493; /* Darker pink for hover */
-    }
-
-    /* Dropdown Menu Styles */
-    .dropdown-menu {
-        display: none; /* Hidden by default */
-        position: absolute;
-        background-color: #FFD1DC; /* Light pink for dropdown */
-        top: 100%; /* Below the parent menu item */
-        left: 0;
-        min-width: 180px;
-        z-index: 1000;
-        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
-    }
-
-    .dropdown-menu li a {
-        padding: 0.75rem 1rem;
-        color: #333;
-    }
-
-    .dropdown-menu li a:hover {
-        background-color: #FF69B4;
-        color: white;
-    }
-
-    /* Show dropdown when hovering */
-    .dropdown:hover .dropdown-menu {
-        display: block;
-    }
-
-    /* Mobile menu (for screens smaller than 768px) */
-    @media screen and (max-width: 768px) {
-        .navbar-links {
-            flex-direction: column;
-            width: 100%;
-            display: none; /* Hidden by default */
-        }
-
-        .navbar-links.active {
-            display: flex; /* Show when active */
-        }
-
-        .navbar-toggle {
-            display: block;
-        }
-
-        .navbar-links li a {
-            padding: 1rem;
-            text-align: center;
-        }
-    }
-</style>
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -240,7 +236,7 @@
     <div class="container">
         <h2 style="color: #d9534f;">Benefits of Yoga and Well-being</h2>
         <div class="blog-post">
-            <img src="yoga1010.jpg" alt="Yoga benefits" class="blog-image" />
+            <img src="/pexels-alexy-almond-3758018.jpg" alt="Yoga benefits" class="blog-image" />
             <div class="blog-content">
                 <h3>The Transformative Power of Yoga</h3>
                 <p>Yoga is more than just a physical practice; it is a holistic approach to health and well-being. Regular practice can enhance flexibility, improve mental clarity, and reduce stress levels.</p>
